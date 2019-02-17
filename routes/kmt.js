@@ -19,7 +19,7 @@ router.route('/relay/')
 })
 .delete( function(req, res, next) {
    // Disable Board
-   KMT.disabledBoard()
+   KMT.disableBoard()
    .then( result => res.status(200).json(result),
            error => res.status(200).json(error))
 })
