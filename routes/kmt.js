@@ -10,6 +10,9 @@ const KMT = new KMTClass()
 router.route('/relay/')
 .get( function(req, res, next) {
    // Get Board Status (ENABLD or DISABLED)
+   KMT.getStatusPort()
+   .then( result => res.status(200).json(result),
+           error => res.status(200).json(error))   
 })
 .post( function(req, res, next) {
    // Enable Board
