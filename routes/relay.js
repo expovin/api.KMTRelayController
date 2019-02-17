@@ -6,9 +6,9 @@ const router = express.Router();
 const KMT = new KMTClass()
 
 /* GET users listing. */
-router.route('/:relay')
+router.route('/relay/:relay')
 .get( function(req, res, next) {
-   // res.status(200).json({result:'KO', data: MarketTrends.getMarketTrends()});
+   res.status(200).json({result:'KO', data: "Getting status for relay "+req.params.relay});
 })
 .post( function(req, res, next) {
     // res.status(200).json({result:'KO', data: MarketTrends.getMarketTrends()});
