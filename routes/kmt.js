@@ -6,8 +6,15 @@ const router = express.Router();
 const KMT = new KMTClass()
 
 /* GET users listing. */
+router.route('/reset')
+.post( function(req, res, next) {
+   // Enable Board
+   KMT.resetBoard()
+   .then( result => res.status(200).json(result),
+           error => res.status(200).json(error))
+})
 
-router.route('/relay/')
+router.route('/relay')
 .get( function(req, res, next) {
    // Get Board Status (ENABLD or DISABLED)
    KMT.getStatusPort()
