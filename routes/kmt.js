@@ -35,7 +35,8 @@ router.route('/relay')
 router.route('/relay/:relay')
 .get( function(req, res, next) {
    // GET the Relay status
-   res.status(200).json({success:true, data: KMT.getRelayStatus()[req.params.relay+1]});  
+   let index = parseInt(req.params.relay,10)-1;
+   res.status(200).json({success:true, data: KMT.getRelayStatus()[index]});  
 })
 .post( function(req, res, next) {
    KMT.enableRelay(req.params.relay, req.body.TTC)
