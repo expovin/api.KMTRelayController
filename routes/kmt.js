@@ -17,9 +17,7 @@ router.route('/reset')
 router.route('/relay')
 .get( function(req, res, next) {
    // Get Board Status (ENABLD or DISABLED)
-   KMT.getStatusPort()
-   .then( result => res.status(200).json(result),
-           error => res.status(200).json(error))   
+   res.status(200).json({success:true, data: KMT.getBoardStatus()});  
 })
 .post( function(req, res, next) {
    // Enable Board
@@ -37,6 +35,7 @@ router.route('/relay')
 router.route('/relay/:relay')
 .get( function(req, res, next) {
    // GET the Relay status
+   res.status(200).json({success:true, data: KMT.getRelayStatus()});  
 })
 .post( function(req, res, next) {
    KMT.enableRelay(req.params.relay, req.body.TTC)
